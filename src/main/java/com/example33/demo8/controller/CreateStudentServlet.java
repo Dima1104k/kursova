@@ -17,7 +17,7 @@ import java.io.IOException;
 @WebServlet("/createStudent")
 public class CreateStudentServlet extends HttpServlet {
     private UserDAO userDao;
-    private GroupDAO groupDao;  // Припускаємо, що ви використовуєте GroupDAO для роботи з групами
+    private GroupDAO groupDao;
 
     @Override
     public void init() throws ServletException {
