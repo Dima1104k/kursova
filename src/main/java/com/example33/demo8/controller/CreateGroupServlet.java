@@ -11,7 +11,7 @@ import java.util.List;
 
 @WebServlet("/createGroup")
 public class CreateGroupServlet extends HttpServlet {
-    private GroupDAO groupDao;  // Припускаючи, що UserDAO включає методи для управління групами
+    private GroupDAO groupDao; 
 
     @Override
     public void init() throws ServletException {
@@ -35,7 +35,7 @@ public class CreateGroupServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String groupName = request.getParameter("groupName").trim();
-        String schedule = request.getParameter("schedule").trim(); // Отримання розкладу з форми
+        String schedule = request.getParameter("schedule").trim(); 
 
 
         try {
