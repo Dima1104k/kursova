@@ -5,7 +5,7 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
-@WebFilter("/*")  // Застосування фільтра до всіх запитів
+@WebFilter("/*")  // застосування фільтра до всіх запитів
 public class AuthorizationFilter implements Filter {
 
     @Override
@@ -17,7 +17,6 @@ public class AuthorizationFilter implements Filter {
         String requestedPage = request.getRequestURI();
         User user = (session != null) ? (User) session.getAttribute("user") : null;
 
-           // Перевірка, чи користувач аутентифікований та чи має відповідну роль для доступу до сторінок
         if ((requestedPage.endsWith("deanDashboard") && (user == null || !"dean".equals(user.getType()))) ||
                 (requestedPage.endsWith("studentDashboard") && (user == null || !"student".equals(user.getType())))) {
             request.setAttribute("errorMessage", "Доступ заборонено: Ви не маєте права доступу до цієї сторінки.");
@@ -25,7 +24,7 @@ public class AuthorizationFilter implements Filter {
             return;
         }
 
-        chain.doFilter(req, res); // Продовження обробки запиту, якщо все добре
+        chain.doFilter(req, res); // продовження якщо все добре
     }
 
     @Override
@@ -35,6 +34,6 @@ public class AuthorizationFilter implements Filter {
 
     @Override
     public void destroy() {
-        // Очищення ресурсів, якщо потрібно
+       
     }
 }
