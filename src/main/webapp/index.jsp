@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="uk">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Ласкаво просимо</title>
@@ -17,7 +17,6 @@
         <a href="login?type=dean" class="button">Увійдіть як працівник деканату</a><br>
         <a href="login?type=student" class="button">Увійдіть як студент</a>
     </div>
-    <!-- Відображення повідомлення про помилку-->
     <c:if test="${not empty errorMessage}">
         <div class="error-message">
             <strong>Помилка: ${errorMessage}</strong>
