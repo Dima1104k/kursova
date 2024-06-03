@@ -19,13 +19,13 @@ import java.util.List;
 public class EditStudentServlet extends HttpServlet {
 
     private UserDAO userDao;
-    private GroupDAO groupDao; // Додаємо GroupDAO
+    private GroupDAO groupDao; 
 
     @Override
     public void init() throws ServletException {
         super.init();
         this.userDao = (UserDAO) getServletContext().getAttribute("userDao");
-        this.groupDao = (GroupDAO) getServletContext().getAttribute("groupDao"); // Ініціалізація GroupDAO
+        this.groupDao = (GroupDAO) getServletContext().getAttribute("groupDao"); 
     }
 
     @Override
@@ -39,8 +39,8 @@ public class EditStudentServlet extends HttpServlet {
             }
 
             List<Group> groups = groupDao.getAllGroups();
-            request.setAttribute("groups", groups); // Передаємо список груп у запит для доступу в JSP
-            request.setAttribute("student", student);  // Передаємо студента в запит для доступу в JSP
+            request.setAttribute("groups", groups); 
+            request.setAttribute("student", student); 
             request.getRequestDispatcher("/WEB-INF/views/editStudent.jsp").forward(request, response);
         } catch (Exception e) {
             response.sendError(400, "Invalid student ID.");
@@ -50,10 +50,10 @@ public class EditStudentServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            Integer id = Integer.parseInt(request.getParameter("id").trim()); // Додавання trim() для id
-            String firstName = request.getParameter("firstName").trim(); // Використання trim() для firstName
-            String lastName = request.getParameter("lastName").trim(); // Використання trim() для lastName
-            String groupCode = request.getParameter("group").trim(); // Використання trim() для groupCode
+            Integer id = Integer.parseInt(request.getParameter("id").trim());
+            String firstName = request.getParameter("firstName").trim();
+            String lastName = request.getParameter("lastName").trim(); 
+            String groupCode = request.getParameter("group").trim(); 
             String faculty = request.getParameter("faculty");
             String educationForm = request.getParameter("educationForm");
             int course = Integer.parseInt(request.getParameter("course"));
