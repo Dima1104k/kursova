@@ -6,7 +6,7 @@ public class StubGroupDao implements GroupDAO {
     private List<Group> groups ;
 
     public StubGroupDao() {
-        this.groups = new ArrayList<>(); // Ініціалізація з деякими початковими даними
+        this.groups = new ArrayList<>();
 
         this.groups.add(new Group("IA-33",
                 "Понеділок: Фізика. Частина 2. Загальна фізика ІІ (08:30 - 10:05), Практичний курс іноземної мови. Частина 1. Foreign Language. Part I (10:25 - 12:00), Основи здорового способу життя (12:20 - 13:55)," +
@@ -61,8 +61,8 @@ public class StubGroupDao implements GroupDAO {
     @Override
     public void updateGroup(String oldCode, String newCode, String newSchedule ) {
         for (Group group : groups) {
-            if (group.getGroupCode().equalsIgnoreCase(oldCode)) { // Змінено з .equals() на .equalsIgnoreCase()
-                group.setGroupCode(newCode.toUpperCase()); // Нормалізація до верхнього регістру
+            if (group.getGroupCode().equalsIgnoreCase(oldCode)) {
+                group.setGroupCode(newCode.toUpperCase()); 
                 group.setSchedule(newSchedule);
             }
         }
@@ -70,13 +70,13 @@ public class StubGroupDao implements GroupDAO {
 
     @Override
     public boolean groupExists(String groupName) {
-        String normalizedGroupName = groupName.toUpperCase(); // Перетворення на верхній регістр
+        String normalizedGroupName = groupName.toUpperCase(); 
         return groups.stream()
                 .anyMatch(group -> group.getGroupCode().toUpperCase().equals(normalizedGroupName));
     }
     @Override
     public List<Group> getAllGroups() {
-        return new ArrayList<>(groups); // Забезпечуємо незмінність списку
+        return new ArrayList<>(groups); 
     }
 
 
