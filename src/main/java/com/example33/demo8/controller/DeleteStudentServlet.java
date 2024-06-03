@@ -21,11 +21,11 @@ public class DeleteStudentServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Integer id = Integer.valueOf(request.getParameter("id"));  // Перетворення String в Integer
+        Integer id = Integer.valueOf(request.getParameter("id"));
 
         try {
             userDao.deleteUser(id);
-            response.sendRedirect("deanDashboard");  // Перенаправлення назад на сторінку деканського дашборду
+            response.sendRedirect("deanDashboard"); 
         } catch (Exception e) {
             e.printStackTrace();
             response.sendError(500, "An error occurred while trying to delete the user.");
