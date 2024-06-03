@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html lang="uk">
+<html>
 <head>
     <title>Редагування групи</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -10,7 +10,7 @@
 <body>
 <h1 class="text-title">Редагування групи</h1>
 
-<!-- Форма для редагування обраної групи -->
+
 <c:if test="${not empty group}">
     <form action="editGroup" method="post">
         <input type="hidden" name="groupCode" value="${group.groupCode}"/>
@@ -21,7 +21,7 @@
         <button type="submit">Оновити</button>
     </form>
 </c:if>
-<!--Повідомлення про помилку-->
+
 <c:if test="${not empty errorMessage}">
     <p style="color: red;">${errorMessage}</p>
 </c:if>
