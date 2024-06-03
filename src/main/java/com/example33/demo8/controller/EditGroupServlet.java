@@ -13,7 +13,7 @@ import java.util.List;
 @WebServlet("/editGroup")
 public class EditGroupServlet extends HttpServlet {
 
-    private GroupDAO groupDao;  // Використання GroupDAO для управління даними груп
+    private GroupDAO groupDao;
 
     @Override
     public void init() throws ServletException {
@@ -30,7 +30,7 @@ public class EditGroupServlet extends HttpServlet {
                 Group group = groupDao.getGroupByCode(groupCode);
                 if (group != null) {
                     request.setAttribute("group", group);
-                    request.setAttribute("schedule", group.getSchedule()); // Додавання розкладу до атрибутів
+                    request.setAttribute("schedule", group.getSchedule()); 
                 } else {
                     request.setAttribute("errorMessage", "Група не знайдена.");
                 }
@@ -53,12 +53,12 @@ public class EditGroupServlet extends HttpServlet {
 
              if ( groupDao.groupExists(newGroupCode) && !groupCode.equalsIgnoreCase(newGroupCode)) {
                  request.setAttribute("errorMessage", "Група з такою назвою вже існує.");
-                doGet(request, response); // Виклик doGet для відновлення форми з повідомленням про помилку
+                doGet(request, response); 
                 return;
             }
 
             groupDao.updateGroup(groupCode, newGroupCode, newSchedule);
-            response.sendRedirect("showGroups"); // Перенаправлення на список груп після успішного оновлення
+            response.sendRedirect("showGroups");
         } catch (Exception e) {
             e.printStackTrace();
             response.sendError(500, "An internal server error occurred.");
