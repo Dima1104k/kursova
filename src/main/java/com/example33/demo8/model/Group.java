@@ -1,12 +1,12 @@
 package com.example33.demo8.model;
 
 public class Group {
-    private String groupCode; // унікальний код або просто назва групи
-    private String schedule;  // розклад занять для групи
-    // Конструктори
+    private String groupCode;
+    private String schedule;  
+  
     public Group(String groupCode) {
         this.groupCode = groupCode;
-        this.schedule = ""; // Початкове значення розкладу
+        this.schedule = ""; 
     }
 
     public Group(String groupCode, String schedule) {
@@ -16,7 +16,7 @@ public class Group {
     private String formatSchedule(String rawSchedule) {
         return rawSchedule.replace(",", ",<br/>");
     }
-    // Гетери та сетери
+ 
     public String getGroupCode() {
         return groupCode;
     }
