@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="uk">
+<html>
 <head>
     <title>Вхід в систему</title>
 
