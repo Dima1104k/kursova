@@ -13,6 +13,6 @@ public class DeanDashboardServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/views/deanDashboard.jsp").forward(request, response); // Перенаправлення на сторінку deanDashboard.jsp для декана
+        request.getRequestDispatcher("/WEB-INF/views/deanDashboard.jsp").forward(request, response); 
     }
 }
