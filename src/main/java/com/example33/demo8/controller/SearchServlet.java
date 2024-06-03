@@ -27,8 +27,8 @@ public class SearchServlet extends HttpServlet {
 
 
         try {
-            String firstName = request.getParameter("firstName").trim();  //Використання trim() для видалення пробілів
-            String lastName = request.getParameter("lastName").trim();    //Використання trim() для видалення пробілів
+            String firstName = request.getParameter("firstName").trim(); 
+            String lastName = request.getParameter("lastName").trim();   
 
             if (firstName.isEmpty() && lastName.isEmpty()) {
 
@@ -41,7 +41,7 @@ public class SearchServlet extends HttpServlet {
 
                 } else {
                     request.setAttribute("user", user);
-                    request.setAttribute("searchCompleted", true); //атрибут searchCompleted допомагає розрізняти випадки,коли форма просто завантажена випадком і коли форма була надіслана з даними
+                    request.setAttribute("searchCompleted", true); //атрибут searchCompleted допомагає розрізняти випадки,коли форма просто завантажена через url вставкою і коли форма була надіслана з даними
 
                 }
 
