@@ -15,16 +15,16 @@ public class AppContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         ServletContext context = sce.getServletContext();
-        GroupDAO groupDao = new StubGroupDao(); // Ініціалізація GroupDAO
-        UserDAO userDao = new StubUserDao(groupDao); // Ініціалізація UserDAO з використанням GroupDAO, мені це потрбіно було для пошуку за назвою груп
+        GroupDAO groupDao = new StubGroupDao();
+        UserDAO userDao = new StubUserDao(groupDao); // ініціалізація UserDAO з використанням GroupDAO, мені це потрбіно було для пошуку за назвою груп
 
-        // Збереження об'єктів DAO у контексті сервлета
+
         context.setAttribute("userDao", userDao);
         context.setAttribute("groupDao", groupDao);
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        // Очистити ресурси, якщо потрібно
+     
     }
 }
