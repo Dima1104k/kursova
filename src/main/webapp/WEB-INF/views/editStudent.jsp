@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html lang="uk">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Редагування студентів</title>
@@ -13,7 +13,7 @@
         <h1 class="text-title">Редагування студентів</h1>
     </header>
     <form action="editStudent" method="POST">
-        <!-- Приховане поле для ID студента -->
+  
         <input type="hidden" name="id" value="${student.id}"/>
             <label for="firstName">Ім'я:</label>
             <input type="text" id="firstName" name="firstName" value="${student.firstName}" required/>
@@ -24,7 +24,7 @@
             <label for="group">Група:</label>
             <select id="group" name="group" required>
                 <option value="">Вибрати групу</option>
-                <!-- Припустимо, що список груп доступний у запиті під назвою groups -->
+           
                 <c:forEach items="${groups}" var="group">
                     <option value="${group.groupCode}" >${group.groupCode}</option>
                 </c:forEach>
