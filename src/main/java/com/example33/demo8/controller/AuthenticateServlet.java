@@ -39,15 +39,15 @@ public class AuthenticateServlet extends HttpServlet {
                 session.setAttribute("user", user.get());
 
                 if ("dean".equals(user.get().getType())) {
-                    response.sendRedirect(request.getContextPath() + "/deanDashboard"); // Перенаправлення на сервлет деканату
+                    response.sendRedirect(request.getContextPath() + "/deanDashboard"); 
                 } else if ("student".equals(user.get().getType())) {
-                    response.sendRedirect(request.getContextPath() + "/studentDashboard"); // Перенаправлення на сервлет студентів
+                    response.sendRedirect(request.getContextPath() + "/studentDashboard"); 
                 } else {
-                    response.sendRedirect(request.getContextPath() + "/login.jsp"); // Повернення на сторінку входу
+                    response.sendRedirect(request.getContextPath() + "/login.jsp");
                 }
             } else {
                 request.setAttribute("errorMessage", "Неправильне ім'я користувача або пароль.");
-                request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response); // Перенаправлення на сторінку login.jsp з повідомленням про помилку
+                request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response); 
             }
         } catch (Exception e) {
             e.printStackTrace();
