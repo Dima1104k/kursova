@@ -9,11 +9,11 @@ public class StubUserDao implements UserDAO {
     private List<User> users;
 
     private GroupDAO groupDao;
-    private static Integer nextId = 1; // Лічильник для генерації ID
+    private static Integer nextId = 1;
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     @Override
     public Integer getNextId() {
-        return nextId ;  // Збільшуємо nextId на 1 кожного разу, коли метод викликається
+        return nextId ; 
     }
     public StubUserDao(GroupDAO groupDao) {
         this.groupDao = groupDao;
@@ -57,7 +57,7 @@ public class StubUserDao implements UserDAO {
         return users.stream()
                 .filter(user -> user.getFirstName().equalsIgnoreCase(firstName) && user.getLastName().equalsIgnoreCase(lastName))
                 .findFirst()
-                .orElse(null); // повертає null, якщо користувач не знайдений
+                .orElse(null);
     }
     @Override
     public User getUserById(Integer id) {
@@ -99,9 +99,9 @@ public class StubUserDao implements UserDAO {
     @Override
     public void addUser(User user) {
         if ("student".equals(user.getType())) {
-            user.setId(nextId++);  // Встановлюємо id і збільшуємо лічильник
+            user.setId(nextId++);
         } else {
-            user.setId(null); // Забезпечуємо, що id для нестудентів не встановлено
+            user.setId(null);
         }
         users.add(user);
     }
