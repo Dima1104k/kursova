@@ -22,7 +22,7 @@ public class SearchByGroupNameServlet extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Перенаправляємо на форму пошуку
+       
         List<Group> groups = groupDao.getAllGroups();
         request.setAttribute("groups", groups);
         request.getRequestDispatcher("/WEB-INF/views/searchByGroupName.jsp").forward(request, response);
