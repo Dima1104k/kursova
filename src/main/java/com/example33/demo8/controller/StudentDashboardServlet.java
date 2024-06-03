@@ -14,6 +14,6 @@ public class StudentDashboardServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/views/studentDashboard.jsp").forward(request, response); // Перенаправлення на сторінку studentDashboard.jsp для студента
+        request.getRequestDispatcher("/WEB-INF/views/studentDashboard.jsp").forward(request, response); 
     }
 }
