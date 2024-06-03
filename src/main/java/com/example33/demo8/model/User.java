@@ -7,7 +7,7 @@ public class User {
     private Integer id;
     private String firstName;
     private String lastName;
-    private Group group; // Замість назви групи, зберігаємо об'єкт Група
+    private Group group; 
     private String username;
     private String password;
     private String type;
@@ -17,7 +17,6 @@ public class User {
     private int course;
     private String speciality;
 
-    // Конструктор
 
     public User( Integer id, String firstName, String username, String password, String type) {
         this.id = id;
@@ -28,7 +27,7 @@ public class User {
     }
 
 
-    // Конструктор з усіма полями
+
 
     public User(Integer id, String firstName, String lastName, Group group, String username, String password, String type, LocalDate birthDate, String faculty, String educationForm, int course, String speciality) {
         this.id = id;
@@ -45,7 +44,7 @@ public class User {
         this.speciality = speciality;
     }
 
-    // Геттери та сеттери
+
     public Integer getId() {
         return id;
     }
