@@ -29,7 +29,7 @@ public class CreateStudentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("groups", groupDao.getAllGroups());
-        //Перенаправлення на jsp сторінку з формою для створення студента
+        
         request.getRequestDispatcher("/WEB-INF/views/createStudent.jsp").forward(request, response);
     }
 
@@ -55,7 +55,7 @@ public class CreateStudentServlet extends HttpServlet {
             User newUser = new User(id, firstName, lastName, group, null, null, "student", birthDate, faculty, educationForm, course, speciality);
             userDao.addUser(newUser);
 
-            response.sendRedirect("deanDashboard");  // Перенаправлення назад на дашборд деканату
+            response.sendRedirect("deanDashboard"); 
         } catch (Exception e) {
             e.printStackTrace();
             response.sendError(500, "Internal Server Error: " + e.getMessage());
